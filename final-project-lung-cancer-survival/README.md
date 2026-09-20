@@ -40,17 +40,55 @@ I **co-led** the project end to end: data exploration and preprocessing, feature
 ## Pipeline
 
 ```mermaid
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif','fontSize':'13px','primaryColor':'#f1f5f9','primaryTextColor':'#334155','primaryBorderColor':'#cbd5e1','lineColor':'#94a3b8','clusterBkg':'#00000000','clusterBorder':'#e2e8f0','titleColor':'#64748b','edgeLabelBackground':'#00000000'}}}%%
 flowchart LR
-    A["🗄️ All of Us<br/>Research Program"] --> C
-    B["🗄️ External clinical<br/>datasets (SCAN360)"] --> C
-    C["🔧 Preprocessing &<br/>Feature Engineering"] --> D["🕸️ Heterogeneous<br/>Knowledge Graph"]
-    C --> E["📋 Tabular<br/>Feature Matrix"]
-    E --> F["📈 Cox Baseline"]
-    D --> G["🔗 Intermediate GNN"]
-    D --> H["🧠 KG-GNN<br/>HeteroGraphSAGE-Cox"]
-    F --> I["📊 Evaluation<br/>C-index · Kaplan-Meier · AUC"]
+    subgraph SRC [ Data ]
+        direction TB
+        A(["All of Us<br/>Research Program"])
+        B(["SCAN360<br/>clinical data"])
+    end
+
+    C["Preprocessing &amp;<br/>feature engineering"]
+
+    subgraph REP [ Representation ]
+        direction TB
+        E["Tabular<br/>feature matrix"]
+        D["Heterogeneous<br/>knowledge graph"]
+    end
+
+    subgraph MOD [ Models ]
+        direction TB
+        F["Cox<br/>baseline"]
+        G["Intermediate<br/>GNN"]
+        H["KG-GNN<br/>HeteroGraphSAGE-Cox"]
+    end
+
+    I(["Evaluation<br/>C-index · Kaplan-Meier · AUC"])
+
+    A --> C
+    B --> C
+    C --> E
+    C --> D
+    E --> F
+    D --> G
+    D --> H
+    F --> I
     G --> I
     H --> I
+
+    classDef src fill:#f8fafc,stroke:#cbd5e1,stroke-width:1px,color:#475569
+    classDef proc fill:#f1f5f9,stroke:#cbd5e1,stroke-width:1px,color:#334155
+    classDef model fill:#eef2ff,stroke:#c7d2fe,stroke-width:1px,color:#3730a3
+    classDef hero fill:#e0e7ff,stroke:#818cf8,stroke-width:1.5px,color:#312e81
+    classDef eval fill:#ecfdf5,stroke:#a7f3d0,stroke-width:1px,color:#065f46
+
+    class A,B src
+    class C,D,E proc
+    class F,G model
+    class H hero
+    class I eval
+
+    linkStyle default stroke:#cbd5e1,stroke-width:1.2px
 ```
 
 <br>
