@@ -34,16 +34,20 @@ The project was built across several development stages, each layer adding capab
 ## Architecture
 
 ```mermaid
-flowchart TB
-    subgraph Clients
-        C1["💻 Client"]
-        C2["💻 Client"]
-        C3["💻 Client"]
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif','fontSize':'13px','primaryColor':'#f1f5f9','primaryTextColor':'#334155','primaryBorderColor':'#cbd5e1','lineColor':'#94a3b8','clusterBkg':'#00000000','clusterBorder':'#e2e8f0','titleColor':'#64748b'}}}%%
+flowchart LR
+    subgraph CL [ Clients ]
+        direction TB
+        C1(["Client"])
+        C2(["Client"])
+        C3(["Client"])
     end
-    W["🌐 Web Interface"]
-    S["⚙️ Server<br/>request handling · concurrency"]
-    L["📂 Storage & File<br/>Management Layer"]
-    D[("🗄️ File Storage")]
+
+    W(["Web interface"])
+
+    S["Server<br/><small>request handling · concurrency</small>"]
+    L["Storage &amp; file<br/>management layer"]
+    D[("File storage")]
 
     C1 --> S
     C2 --> S
@@ -51,6 +55,16 @@ flowchart TB
     W --> S
     S --> L
     L --> D
+
+    classDef client fill:#f8fafc,stroke:#cbd5e1,stroke-width:1px,color:#475569
+    classDef core fill:#eef2ff,stroke:#c7d2fe,stroke-width:1px,color:#3730a3
+    classDef store fill:#ecfdf5,stroke:#a7f3d0,stroke-width:1px,color:#065f46
+
+    class C1,C2,C3,W client
+    class S,L core
+    class D store
+
+    linkStyle default stroke:#cbd5e1,stroke-width:1.2px
 ```
 
 <br>

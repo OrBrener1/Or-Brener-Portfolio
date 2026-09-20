@@ -27,38 +27,27 @@ This repository is a curated portfolio of my two most substantial projects to da
 
 ## Projects
 
-<table>
-<tr>
-<td width="50%" valign="top">
+### 🧬 [Machine Learning Research for Cancer Survival Prediction](./final-project-lung-cancer-survival)
 
-### 🧬 Cancer Survival Prediction
+*Dr. Alon Bartal's Lab, Bar-Ilan University · In collaboration with the University of Miami · 2025–2026*
 
-**Machine Learning Research · 2025–2026**
+Developed and benchmarked statistical and graph-based machine learning models — including **Graph Neural Networks** — to predict survival and clinical outcomes in cancer patients, using national-scale biomedical data from the **NIH All of Us Research Program**.
 
-Developed and benchmarked statistical and graph-based models — including **Graph Neural Networks** — to predict survival and clinical outcomes in cancer patients, using national-scale biomedical data from the **NIH All of Us Research Program**.
-
-Conducted at **Dr. Alon Bartal's Lab**, Bar-Ilan University, in collaboration with the **University of Miami**.
-
-`Python` `PyTorch Geometric` `Survival Analysis` `BigQuery`
+`Python` · `PyTorch Geometric` · `Survival Analysis` · `BigQuery`
 
 **→ [Read the full write-up](./final-project-lung-cancer-survival)**
 
-</td>
-<td width="50%" valign="top">
+<br>
 
-### ☁️ Cloud Storage Platform
+### ☁️ [Cloud Storage Platform](./systems-programming-drive-clone)
 
-**Advanced Systems Programming**
+*Advanced Systems Programming Project*
 
 Designed and built a **multi-client cloud storage system** with a web interface — file upload, download, sharing and synchronization between a server and multiple concurrent clients. A Google-Drive-like system, built from the ground up.
 
-`C++` `Java` `Networking` `Concurrency` `Client–Server`
+`C++` · `Java` · `Networking` · `Concurrency` · `Client–Server`
 
 **→ [Read more](./systems-programming-drive-clone)** · **[Source code](https://github.com/OrBrener1/Drive-part-5)**
-
-</td>
-</tr>
-</table>
 
 <br>
 
