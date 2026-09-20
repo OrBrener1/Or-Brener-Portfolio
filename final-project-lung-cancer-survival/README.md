@@ -121,7 +121,7 @@ Models were assessed with standard survival-analysis methodology rather than pla
 ## Stack
 
 **Data** · NIH All of Us Research Program · SCAN360 clinical datasets
-**Tools** · Python · PyTorch / PyTorch Geometric · pandas · SQL / BigQuery · lifelines / scikit-survival
+**Tools** · Python · PyTorch / PyTorch Geometric · pandas · SQL / BigQuery
 
 <br>
 

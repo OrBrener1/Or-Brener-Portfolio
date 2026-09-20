@@ -10,6 +10,10 @@
 
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![Networking](https://img.shields.io/badge/Networking-4A5568?style=flat-square)
 ![Concurrency](https://img.shields.io/badge/Concurrency-6B46C1?style=flat-square)
 
@@ -77,6 +81,14 @@ flowchart LR
 | 👥 **Multi-client support** | Multiple users connected concurrently to the same server |
 | 🔄 **Synchronization** | Keeping client and server state consistent |
 | 🌐 **Web interface** | Browser-based UI for interacting with the storage system |
+
+<br>
+
+## Stack
+
+**Backend & core** · C++ · Java · Python
+**Interface** · HTML · CSS
+**Infrastructure** · Docker
 
 <br>
 
