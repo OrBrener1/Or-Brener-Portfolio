@@ -1,11 +1,8 @@
 <div align="center">
 
-# Machine Learning Research for Cancer Survival & Clinical Outcome Prediction
+<img src="assets/hero.svg" alt="Machine Learning Research for Cancer Survival &amp; Clinical Outcome Prediction. Dr. Alon Bartal's Lab, Bar-Ilan University, in collaboration with the University of Miami, 2025–2026." width="100%">
 
-**Dr. Alon Bartal's Lab, Bar-Ilan University**
-*In collaboration with the University of Miami · 2025–2026*
-
-<br>
+<br><br>
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
@@ -15,7 +12,13 @@
 ![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=flat-square&logo=googlebigquery&logoColor=white)
 ![Survival Analysis](https://img.shields.io/badge/Survival_Analysis-0B7285?style=flat-square)
 
-<sub>[Overview](#overview) · [The pipeline](#the-pipeline) · [Step by step](#step-by-step) · [Outcome](#outcome) · [Stack](#stack)</sub>
+<br>
+
+<a href="#overview"><img src="assets/nav-overview.svg" alt="Overview" height="40"></a>&nbsp;
+<a href="#the-pipeline"><img src="assets/nav-pipeline.svg" alt="The pipeline" height="40"></a>&nbsp;
+<a href="#step-by-step"><img src="assets/nav-steps.svg" alt="Step by step" height="40"></a>&nbsp;
+<a href="#outcome"><img src="assets/nav-outcome.svg" alt="Outcome" height="40"></a>&nbsp;
+<a href="#stack"><img src="assets/nav-stack.svg" alt="Stack" height="40"></a>
 
 </div>
 
@@ -27,13 +30,18 @@ The project asks whether a patient's clinical history predicts survival better w
 
 The data comes from the NIH All of Us Research Program, a US national cohort that links electronic health records, surveys and genomic data. Participant-level data never leaves the program's secure cloud workbench, so every stage described below was built and run inside it.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/facts-dark.svg">
+  <img alt="26 binary clinical features, 3 cumulative time windows, 3 model architectures, 5-fold shared cross-validation" src="assets/facts-light.svg" width="100%">
+</picture>
+
 <br>
 
 ## The pipeline
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-dark.svg">
-  <img alt="Pipeline: cohort extraction, label audit, time-to-event framing and feature engineering feed three models (Tabular Cox, Intermediate GNN, Full KG-GNN) that share features and folds, followed by evaluation. Everything runs inside the All of Us Researcher Workbench." src="assets/pipeline-light.svg" width="100%">
+  <img alt="Pipeline drawn as a transit map: cohort extraction, label audit, time-to-event framing and feature engineering on one line, which splits into three model lines (Tabular Cox, Intermediate GNN, Full KG-GNN) and rejoins at evaluation. Everything runs inside the All of Us Researcher Workbench." src="assets/pipeline-light.svg" width="100%">
 </picture>
 
 <br>
@@ -61,10 +69,10 @@ That produced 26 binary features, each built for three cumulative windows: at th
 ### 5 · Three models, one comparison
 
 | Model | What it sees | Our part |
-|---|---|---|
-| **Tabular Cox** | The clinical features plus age and sex as a flat table, with ridge regularization | Built it |
-| **Intermediate GNN** | A HeteroGraphSAGE-Cox model on a reduced graph of patients, the same clinical features, age and sex | Built the reduced graph and adapted the lab's GNN from binary classification to a Cox objective |
-| **Full KG-GNN** | The same architecture on the full lung cancer subgraph, which adds genomic, geographic and social-determinants layers | The knowledge graph is an existing lab resource; we cut it down to the lung cancer cohort and added the time-dependent clinical layer |
+|:---:|---|---|
+| <img src="assets/model-tabular.svg" height="30"><br>**Tabular Cox** | The clinical features plus age and sex as a flat table, with ridge regularization | Built it |
+| <img src="assets/model-intermediate.svg" height="30"><br>**Intermediate GNN** | A HeteroGraphSAGE-Cox model on a reduced graph of patients, the same clinical features, age and sex | Built the reduced graph and adapted the lab's GNN from binary classification to a Cox objective |
+| <img src="assets/model-full.svg" height="30"><br>**Full KG-GNN** | The same architecture on the full lung cancer subgraph, which adds genomic, geographic and social-determinants layers | The knowledge graph is an existing lab resource; we cut it down to the lung cancer cohort and added the time-dependent clinical layer |
 
 Both GNNs share one architecture and one training configuration, so what separates them is how much of the graph they can see.
 
