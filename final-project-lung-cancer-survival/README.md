@@ -41,7 +41,7 @@ The data comes from the **NIH All of Us Research Program**, a US national cohort
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-dark.svg">
-  <img alt="Pipeline drawn as a transit map: cohort extraction, label audit, time-to-event framing and feature engineering on one line, which splits into three model lines (Tabular Cox, Intermediate GNN, Full KG-GNN) and rejoins at evaluation. Everything runs inside the All of Us Researcher Workbench." src="assets/pipeline-light.svg" width="100%">
+  <img alt="Pipeline drawn as a transit map: cohort extraction, outcome labels, time-to-event framing and feature engineering on one line, which splits into three model lines (Tabular Cox, Intermediate GNN, Full KG-GNN) and rejoins at evaluation. Everything runs inside the All of Us Researcher Workbench." src="assets/pipeline-light.svg" width="100%">
 </picture>
 
 <br>
@@ -52,9 +52,9 @@ The data comes from the **NIH All of Us Research Program**, a US national cohort
 
 All of Us stores its clinical records in the OMOP common data model on BigQuery. We wrote SQL queries that identified lung cancer patients through five OMOP condition concepts and their descendants, matched them against the patients already in the lab's knowledge graph, and set each patient's earliest lung cancer condition date as time zero for everything that followed.
 
-### 2 · Auditing the outcome labels
+### 2 · Building the outcome labels
 
-We built the survival outcomes from verified death records: an event date for patients with a recorded death, and censoring at the last recorded clinical activity for everyone else. 
+We built the survival outcomes from verified death records: an event date for patients with a recorded death, and censoring at the last recorded clinical activity for everyone else.
 
 ### 3 · Framing the problem as time-to-event
 
@@ -92,6 +92,7 @@ With most outcomes censored, plain accuracy was not an option: for a censored pa
 ## Outcome
 
 The tabular Cox model came out ahead in every time window, on both C-index measures, and the complementary analyses showed the same ranking. Neither the graph representation nor the wider knowledge-graph context improved prediction, which points to a complexity–data trade-off: with few observed deaths, the simpler regularized model generalized better. As a next step, we proposed extending the pipeline to other cancer types, to bring in more patients and observed events, and adding clinical variables with stronger prognostic value, such as tumor stage and histology.
+
 <br>
 
 ## Stack
