@@ -72,9 +72,13 @@ A multi-client cloud storage system: file upload, download, sharing and synchron
 
 **B.Sc. Computational Biology**, Bar-Ilan University · 2023–present
 
-Computational biology combines computer science with biology, chemistry and biotechnology. My project work applies the computational side to clinical and biological data.
+Computational biology combines computer science with biology, chemistry and biotechnology.
 
-**Core coursework** · Algorithms · Communication Networks · Machine Learning · Bioinformatics · Computational Genomics · Biochemistry · Human–Machine Interface
+My project work applies the computational side to clinical and biological data.
+
+**Core coursework** 
+
+    · Algorithms · Communication Networks · Machine Learning · Bioinformatics · Computational Genomics · Biochemistry · Human–Machine Interface
 
 <br>
 
