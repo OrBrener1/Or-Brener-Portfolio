@@ -26,9 +26,9 @@
 
 ## Overview
 
-The project asks whether a patient's clinical history predicts survival better when it is represented as a knowledge graph than when the same variables sit in an ordinary table. To answer that, we built a survival-analysis pipeline for lung cancer patients and ran one tabular model and two graph neural networks through it on identical data, features and cross-validation splits.
+The project asks whether a patient's clinical history predicts survival better when it is represented as a knowledge graph than when the same variables sit in an ordinary table. To answer that, we built a survival-analysis pipeline for lung cancer patients and ran one tabular model and two **graph neural networks** through it on identical data, features and cross-validation splits.
 
-The data comes from the NIH All of Us Research Program, a US national cohort that links electronic health records, surveys and genomic data. Participant-level data never leaves the program's secure cloud workbench, so every stage described below was built and run inside it.
+The data comes from the **NIH All of Us Research Program**, a US national cohort that links electronic health records, surveys and genomic data. Participant-level data never leaves the program's secure cloud workbench, so every stage described below was built and run inside it.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/facts-dark.svg">
@@ -54,7 +54,7 @@ All of Us stores its clinical records in the OMOP common data model on BigQuery.
 
 ### 2 · Auditing the outcome labels
 
-Before any modeling, we traced how the survival labels inherited from earlier lab work had been produced and found that they did not come from verified death records. We rebuilt the outcomes from recorded deaths: an event date for patients with a death record, and censoring at the last recorded clinical activity for everyone else. Verified deaths turned up only among the lung cancer patients, which is why the project narrowed to lung cancer.
+We built the survival outcomes from verified death records: an event date for patients with a recorded death, and censoring at the last recorded clinical activity for everyone else. 
 
 ### 3 · Framing the problem as time-to-event
 
@@ -80,19 +80,18 @@ Both GNNs share one architecture and one training configuration, so what separat
 
 - All three models ran on the same patient-level, stratified 5-fold splits, fixed in advance, so every fold tested each model on exactly the same patients.
 - Survival edges were removed from the graph encoder and each time-dependent feature was restricted to its own window, so the GNNs had no path to the outcome.
-- We considered stacking the three windows into one dataset with three rows per patient and rejected it: one patient could end up in both the training and the test fold, and the extra rows would add no new deaths.
+- We kept the three windows as separate views of the same cohort. Stacking them into patient-time records would have broken the independence that cross-validation relies on, since a patient's 0-month record could sit in a training fold while their 12-month record was tested, and it would have inflated the sample size without adding a single event.
 - The 6- and 12-month windows include information recorded after time zero, so we added a landmark analysis that restarts the survival clock at each window and keeps only the patients still at risk at that point.
 
 ### 7 · Evaluation
 
-Accuracy tells you little when most outcomes are censored. Each model was scored with Harrell's C-index and with the IPCW C-index, whose censoring weights were estimated on the training folds only. Out-of-fold predictions were then converted to within-fold risk percentiles and pooled for three further checks: Kaplan–Meier curves for predicted high- and low-risk groups, observed event rates in the highest- versus lowest-risk thirds, and time-dependent AUC at one, three and five years.
+With most outcomes censored, plain accuracy was not an option: for a censored patient there is no known outcome to be right or wrong about. Each model was therefore scored with Harrell's C-index and with the IPCW C-index, whose censoring weights were estimated on the training folds only. Out-of-fold predictions were then converted to within-fold risk percentiles and pooled for three further checks: Kaplan–Meier curves for predicted high- and low-risk groups, observed event rates in the highest- versus lowest-risk thirds, and time-dependent AUC at one, three and five years.
 
 <br>
 
 ## Outcome
 
-The ridge-regularized tabular Cox model outperformed both graph models in every time window and on every metric. Neither the graph structure nor the added genomic, geographic and social context improved prediction. In a small cohort with few observed deaths the simpler model generalized better, and it took a strong baseline to make that visible. The next experiment we proposed is to feed patient embeddings learned by the GNN into the Cox model as extra covariates, which would test directly whether the graph holds prognostic signal that the clinical features lack.
-
+The tabular Cox model came out ahead in every time window, on both C-index measures, and the complementary analyses showed the same ranking. Neither the graph representation nor the wider knowledge-graph context improved prediction, which points to a complexity–data trade-off: with few observed deaths, the simpler regularized model generalized better. As a next step, we proposed extending the pipeline to other cancer types, to bring in more patients and observed events, and adding clinical variables with stronger prognostic value, such as tumor stage and histology.
 <br>
 
 ## Stack
