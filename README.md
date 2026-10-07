@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="Or Brener. Computational Biology B.Sc. student, Bar-Ilan University. Machine learning on real-world clinical data, systems programming." width="100%">
+<img src="assets/hero.svg" alt="Or Brener. Computational Biology B.Sc. student, Bar-Ilan University. Machine learning on real-world clinical data." width="100%">
 
 <br><br>
 
