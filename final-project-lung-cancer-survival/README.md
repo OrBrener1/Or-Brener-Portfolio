@@ -68,13 +68,13 @@ That produced 26 binary features, each built for three cumulative windows: at th
 
 ### 5 · Three models, one comparison
 
-| Model | What it sees | Our part |
+| Model | Patient representation | Learning model |
 |:---:|---|---|
-| <img src="assets/model-tabular.svg" height="30"><br>**Tabular Cox** | The clinical features plus age and sex as a flat table, with ridge regularization | Built it |
-| <img src="assets/model-intermediate.svg" height="30"><br>**Intermediate GNN** | A HeteroGraphSAGE-Cox model on a reduced graph of patients, the same clinical features, age and sex | Built the reduced graph and adapted the lab's GNN from binary classification to a Cox objective |
-| <img src="assets/model-full.svg" height="30"><br>**Full KG-GNN** | The same architecture on the full lung cancer subgraph, which adds genomic, geographic and social-determinants layers | The knowledge graph is an existing lab resource; we cut it down to the lung cancer cohort and added the time-dependent clinical layer |
+| <img src="assets/model-tabular.svg" height="30"><br>**Tabular Cox** | A flat table of the clinical features plus age and sex | Ridge-penalized Cox |
+| <img src="assets/model-intermediate.svg" height="30"><br>**Intermediate GNN** | A partial graph linking each patient to the shared clinical feature nodes, age-group nodes and sex | HeteroGraphSAGE-Cox |
+| <img src="assets/model-full.svg" height="30"><br>**Full KG-GNN** | The lung cancer subgraph of the lab's knowledge graph: the intermediate graph plus genomic, geographic and social-determinants layers | HeteroGraphSAGE-Cox |
 
-Both GNNs share one architecture and one training configuration, so what separates them is how much of the graph they can see.
+Both GNNs also share one training configuration.
 
 ### 6 · Keeping the comparison fair
 
