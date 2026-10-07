@@ -23,7 +23,7 @@
 
 <br>
 
-I'm a computational biology student at Bar-Ilan University. My work so far has been on the computational side: predictive models built and evaluated on real patient data, and systems programming.
+I'm a computational biology student at Bar-Ilan University. So far my work has been computational: I've built and evaluated predictive models on real patient data and developed a full-stack software project.
 
 This repository collects the two projects I've invested the most in.
 
