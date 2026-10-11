@@ -25,10 +25,7 @@
 
 <br>
 
-I'm a computational biology student at Bar-Ilan University. So far my work has been computational: I've built and evaluated predictive models on real patient data and developed a full-stack software project.
-
-This repository collects the two projects I've invested the most in.
-
+I'm a computational biology student at Bar-Ilan University. My two main projects are a survival-prediction study on real patient data and a full-stack cloud storage system with web and mobile clients. Both are documented below.
 <br>
 
 ## Projects
@@ -78,7 +75,7 @@ A Google Drive-style storage system: a web client and a mobile app on top of one
 
 Computational biology combines computer science with biology, chemistry and biotechnology.
 
-My project work applies the computational side to clinical and biological data.
+My work applies the computational side to clinical and biological data.
 
 **Core coursework** 
 
