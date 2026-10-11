@@ -17,8 +17,7 @@
 
 <a href="#overview"><img src="assets/nav-overview.svg" alt="Overview" height="40"></a>&nbsp;
 <a href="#architecture"><img src="assets/nav-architecture.svg" alt="Architecture" height="40"></a>&nbsp;
-<a href="#how-its-built"><img src="assets/nav-code.svg" alt="How it's built" height="40"></a>&nbsp;
-<a href="#design-decisions"><img src="assets/nav-decisions.svg" alt="Design decisions" height="40"></a>&nbsp;
+<a href="#inside-the-code"><img src="assets/nav-code.svg" alt="Inside the code" height="40"></a>&nbsp;
 <a href="#stack"><img src="assets/nav-stack.svg" alt="Stack" height="40"></a>
 
 </div>
@@ -31,13 +30,6 @@ Drive Me Nuts is a Google Drive-style storage system, built as a full-stack proj
 
 The system was built in stages over the course: first the C++ storage server, then the Node.js backend and MongoDB, and finally the two clients.
 
-<div align="center">
-<a href="https://github.com/OrBrener1/Drive-part-5"><img src="assets/link-source.svg" alt="Source code" height="40"></a>&nbsp;
-<a href="https://github.com/OrBrener1/Drive-part-5/wiki"><img src="assets/link-wiki.svg" alt="Project wiki" height="40"></a>
-</div>
-
-<br>
-
 ## Architecture
 
 <picture>
@@ -49,7 +41,7 @@ The Node.js API handles everything the user interacts with: authentication with 
 
 <br>
 
-## How it's built
+## Inside the code
 
 Each service is split into layers that each do one job. In the Node.js backend a request passes from the routes, where its JWT is checked, to a controller, then to a service that holds the file, sharing and search logic, and finally to a repository that reads and writes MongoDB. HTTP handling, business rules and data access stay apart, in the spirit of MVC. The C++ server is layered the same way: the TCP server hands each connection to a thread pool, a parser turns the request into a command, and each command works through a file manager that compresses what it stores in a Docker volume.
 
@@ -60,13 +52,12 @@ Each service is split into layers that each do one job. In the Node.js backend a
 
 We designed the code to stay maintainable as it grew over the course's stages. The object-oriented C++ server follows SOLID: every command, connection, parser, file manager and compression method sits behind its own interface, so new commands or storage strategies plug in without rewriting the code around them. Across the project we kept to KISS, DRY and separation of concerns, with loosely coupled services that talk only through the REST API and the TCP protocol.
 
-<br>
+Feel free to look around: the [project wiki](https://github.com/OrBrener1/Drive-part-5/wiki) shows the web and mobile clients in action, screen by screen.
 
-## Design decisions
-
-- Permissions are hierarchical: sharing a folder gives the same access to everything inside it. Starring is personal and applies to a single item, so one user's organization never changes what another user sees.
-- Only the owner can delete an item for everyone. When a user it was shared with deletes it, the item leaves that user's workspace and their permission is revoked, while the owner and the other users keep it.
-- Moving a folder to the bin hides its whole subtree from the file views and from search until the folder is restored.
+<div align="center">
+<a href="https://github.com/OrBrener1/Drive-part-5"><img src="assets/link-source.svg" alt="Source code" height="40"></a>&nbsp;
+<a href="https://github.com/OrBrener1/Drive-part-5/wiki"><img src="assets/link-wiki.svg" alt="Project wiki" height="40"></a>
+</div>
 
 <br>
 
