@@ -53,7 +53,7 @@ A survival-analysis pipeline built on patient data from the NIH All of Us Resear
 </picture>
 </a>
 
-A multi-client cloud storage system: file upload, download, sharing and synchronization between a server and many concurrent clients, built in stages from the communication layer up to a web interface.
+A Google Drive-style storage system: a web client and a mobile app on top of one REST API, backed by MongoDB and a multithreaded C++ storage server. Users can register, organize files and folders, share them with hierarchical permissions and search them. Built in stages, starting from the C++ server and ending with the two clients.
 
 **[Explore the project →](./systems-programming-drive-clone)** · **[Source code](https://github.com/OrBrener1/Drive-part-5)**
 
