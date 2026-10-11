@@ -10,6 +10,8 @@
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 <br>
@@ -47,7 +49,7 @@ A survival-analysis pipeline built on patient data from the NIH All of Us Resear
 <a href="./systems-programming-drive-clone">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/card-drive-dark.svg">
-  <img alt="Cloud Storage Platform. Full-stack course project, Advanced Systems Programming. C++, Java, Python, Docker, Networking, Concurrency." src="assets/card-drive-light.svg" width="100%">
+  <img alt="Cloud Storage Platform. Full-stack course project, Advanced Systems Programming. C++, Node.js, React, React Native, MongoDB, Docker." src="assets/card-drive-light.svg" width="100%">
 </picture>
 </a>
 
@@ -61,10 +63,12 @@ A multi-client cloud storage system: file upload, download, sharing and synchron
 
 | | |
 |---|---|
-| **Languages** | Python, SQL, C++, Java, HTML/CSS |
+| **Languages** | Python, SQL, C++, Java, JavaScript, HTML/CSS |
 | **Data & ML** | pandas, PyTorch / PyTorch Geometric, matplotlib / seaborn, exploratory data analysis, feature engineering |
 | **Statistics** | Survival analysis, censored data, cross-validation, model evaluation and benchmarking |
-| **Systems** | Client–server architecture, concurrency, networking, Docker, Git |
+| **Software engineering** | Object-oriented programming, client–server architecture, REST APIs, concurrency, networking |
+| **Web & data stores** | Node.js, React, React Native, MongoDB, BigQuery |
+| **Tools & process** | Docker, Git, Scrum |
 
 <br>
 
