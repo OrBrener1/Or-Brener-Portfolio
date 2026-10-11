@@ -52,7 +52,7 @@ Each service is split into layers that each do one job. In the Node.js backend a
 
 We designed the code to stay maintainable as it grew over the course's stages. The object-oriented C++ server follows SOLID: every command, connection, parser, file manager and compression method sits behind its own interface, so new commands or storage strategies plug in without rewriting the code around them. Across the project we kept to KISS, DRY and separation of concerns, with loosely coupled services that talk only through the REST API and the TCP protocol.
 
-Feel free to look around: the [project wiki](https://github.com/OrBrener1/Drive-part-5/wiki) shows the web and mobile clients in action, screen by screen.
+Feel free to look around: the project wiki shows the web and mobile clients in action, screen by screen.
 
 <div align="center">
 <a href="https://github.com/OrBrener1/Drive-part-5"><img src="assets/link-source.svg" alt="Source code" height="40"></a>&nbsp;
